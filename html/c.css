@@ -1,0 +1,159 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+body{
+    width: 100%;
+    height: 100%;
+}
+
+#container {
+    width: 100%;
+    height: 85%;
+    position: static;
+
+}
+#submit {
+    width: 420px;
+    height: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-top:40px;
+    text-align: center;
+    float:bottom;
+}
+li {
+    width: 80px;
+    position: absolute;
+    text-align: center;
+}
+
+textarea{
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 5px;
+    border: 2px solid #d8d8d8;
+    background: white;
+    padding: 15px;
+    margin-top:10px; 
+    min-width: 300px;
+    height: 13vh;
+    max-height:70px;
+    font-size: 15px;  
+    text-align:left;
+    color: black;
+    vertical-align: middle;
+    position: relative;
+    float: left;
+    z-index: 5;
+}
+button{
+    background: white;
+    margin-top:10px; 
+    border-radius: 5px;
+    border: 2px solid red;
+    color: red;
+    padding: 10px; 
+    height: 13vh;
+    max-height:70px;
+    width: 70px;
+    font-size: 15px;  
+    text-align:center;  
+    vertical-align: middle;
+    position: relative;
+    float:left;
+    z-index: 6;
+}
+
+button:hover{
+    background: red;
+    margin-top:10px; 
+    border-radius: 5px;
+    border: 2px solid red;
+    color: white;
+    padding: 10px; 
+    height: 13vh;
+    max-height:70px;
+    width: 70px;
+    font-size: 15px;  
+    text-align:center;  
+    vertical-align: middle;
+    position: relative;
+    float:left;
+    z-index: 5;
+}
+
+.badge{
+    font-family: 'Noto Sans KR', sans-serif;
+    position: absolute;
+    border-radius: 40px;
+    background: red;
+    padding: 7px;
+    display:inline-block;
+    font-size: 15px;  
+    color:white;
+    float: left;
+    z-index: 10;
+    margin-left:140px;
+}
+
+
+.mdl-badge[data-badge]:after{
+    background: red;
+    top: -6vh;
+    left: 0.00005vw;
+    font-weight: 100;
+
+}
+
+.Opacity_layer{
+
+    background:white;
+    opacity:0.2;
+}
+
+.Bubble1 {
+    background:#D8D8D8;
+    color:black;
+    padding: 20px; 
+    border-radius:20px;
+    font-size: 17px;
+    display: inline-block;
+    position: absolute;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.Bubble2 {
+    border: 2px solid black;
+    background: white;
+    padding: 20px; 
+    border-radius:20px;
+    font-size: 17px;  
+    display: inline-block;
+    position: absolute;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);   
+    z-index: 1;
+}
+
+.Bubble3 {
+    background:#282828;
+    color:white;
+    padding: 20px; 
+    border-radius:20px;
+    font-size: 17px;
+    display: inline-block;
+    position: absolute;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.newBubble{
+    border-radius: 20px;
+    background: red;
+    padding: 20px; 
+    font-size: 17px;  
+    position: absolute;  
+    color: white;
+    z-index: 2;
+}

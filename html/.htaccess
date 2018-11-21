@@ -1,0 +1,8 @@
+<IfModule mod_url.c>
+    checkURL On
+    ServerEncoding EUC-KR
+    ClientEncoding UTF-8
+</IfModule>
+ErrorDocument 404 http://tmi2018.dothome.co.kr/404.php 
+php_flag register_globals on
+php_flag register_long_arrays on

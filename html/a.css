@@ -1,0 +1,57 @@
+/*nav bar*/
+body{
+    background-color: rgb(221, 223, 226);
+}
+.nav{
+    background: #3b5998;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color : #243c6d;
+}
+
+/*submit button*/
+.btn.btn-primary {
+    background-color: #4080ff;
+    float: right;
+    margin: 5px;
+    }
+
+/*cards*/
+.no-padding{
+    padding: 0;
+}
+.no-margin{
+    margin: 0;
+}
+.demo-card-wide{
+    min-height: 15vh;
+    margin-bottom: 5px;
+}
+.demo-card-wide > .mdl-card__title {
+color: #fff;
+}
+.demo-card-wide > .mdl-card__menu {
+color: #fff;
+}
+
+.mdl-list__item-avatar {
+    margin-right: 10px;
+}
+.demo-card-wide.mdl-card{
+    width: 100%;
+}
+
+.mdl-card__supporting-text{
+    color: black;
+    font-size: 1.2rem;
+    line-height: 1.15;
+    min-height: 15vh;    
+}
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mdl-card__actions.mdl-card--border{
+    position:absolute; 
+    bottom:0px;
+}

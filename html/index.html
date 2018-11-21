@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta property="og:title" content="TMI"/>
+        <meta property="og:url" content="http://tmi2018.dothome.co.kr"/>
+        <meta property="og:description" content="이 사이트는 100년전 영국에서 시작해서..."/>
+        <meta property="og:image" content="http://66.media.tumblr.com/a4d31d5d7ccc2d23b3e70fdaed7ba556/tumblr_pa11orXz9Y1w95ix6o1_1280.png"/>
+        <!--bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <!-- mdl link-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--randomizer jquery-->
+        <script src="randomizer2.js"></script>
+        
+        <!--external style sheet-->
+        <link rel="stylesheet" type="text/css" href="c.css">
+
+        <script>
+        function check_validity(comment){
+        	if (comment.includes("<")){
+                return [false,"<는 입력하실수 없습니다."]
+            } 
+            if (comment.includes(">")){
+                return [false,">는 입력하실수 없습니다."]
+            } 
+            if (comment.includes("http://")){
+                return [false,"링크는 입력하실수 없습니다."]
+            } 
+            if (comment.includes("https://")){
+                return [false,"링크는 입력하실수 없습니다."]
+            } 
+            if (comment.length > 100){
+                return [false, "100자 이하로 입력해주세요"]
+            }
+            comment = comment.replace(/ /gi,'');
+            comment = comment.replace(/\n/gi,'');
+            if (comment.length < 2){
+                return [false, "2자 이상 입력해주세요"]
+            }
+            return [true,""]
+        }
+        function shuffle(array) {
+			var currentIndex = array.length, temporaryValue, randomIndex;
+			while (0 !== currentIndex) {
+				randomIndex = Math.floor(Math.random() * currentIndex);
+				currentIndex -= 1;
+				temporaryValue = array[currentIndex];
+				array[currentIndex] = array[randomIndex];
+				array[randomIndex] = temporaryValue;
+			}
+			return array;
+		}
+        function load_htmls(post_data, append_data) {
+            $.ajax({
+                type: 'post',
+                dataType: 'json',
+                url: 'data_load.php',
+                data: post_data,
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (data) {
+                    //console.log(data);
+                    if (append_data){
+                    	shuffle(data)
+                    	var data_num = 0
+                        for (var i =0; i<data.length; i++){
+                        	if(!check_validity(data[i]['comment'])[0]){
+							    continue;
+							}
+                        	comment = data[i]['comment'].substring(0,100);
+                            if (i % 3 == 0){
+                                $('#container').append('<p class = "Bubble1" id="comment_p_'+i+'"></p>');
+                            } else if (i % 3 == 1){
+                                $('#container').append('<p class = "Bubble2" id="comment_p_'+i+'"></p>');
+                            }else if (i % 3 == 2){
+                                $('#container').append('<p class = "Bubble3" id="comment_p_'+i+'"></p>');
+                            }
+                            $('#comment_p_'+i).text(comment);
+                            data_num++;
+                            if(data_num>=200){
+                            	break;
+                            }
+                        }
+                        $('#container').randomizer();
+                    }else{
+                        $('#container').append('<p class = "newBubble" style="z-index:1000;">'+post_data['comment']+'</p>');
+                    }
+                    $('#number_of_comments').text(data.length)
+                },
+                error: function (request, status, error) {
+                    console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+                }
+            });
+        }
+        $(document).on('click','#comment_submit', function() {
+            comment = $("#comment_text").val();
+            vali = check_validity(comment);
+            if (!vali[0]){
+            	alert(vali[1]);
+            	return;
+            }
+            if (comment != ""){
+                $("#comment_text").val("");
+                //$("#submit").hide();
+                //$.get("http://ipinfo.io", function(response) {
+                //	load_htmls({"comment":comment,"ip":response.ip},false);
+                //}, "jsonp");
+                load_htmls({"comment":comment},false);
+                
+            }
+            
+        });
+
+        //Load html
+        load_htmls({},true);
+        </script>
+    </head>
+
+    <body>
+        <div id="container">
+
+        </div>
+        <div id = "submit">
+            <p id ="number_of_comments" class="badge">1234</p>
+            <textarea id="comment_text" rows="3"></textarea>
+            <button id="comment_submit" type="submit">TMI<br>입력</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,115 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+#container {
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+#submit {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+li {
+    width: 80px;
+    position: absolute;
+    text-align: center;
+}
+
+textarea{
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 15px;
+    border: 2px solid #d8d8d8;
+    background: white;
+    padding: 15px; 
+    width: 60vw;
+    height: 13vh;
+    max-height:70px;
+    font-size: 15px;  
+    text-align:left;
+    color: black;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+}
+button{
+    background: white;
+    border-radius: 15px;
+    border: 2px solid red;
+    color: red;
+    padding: 10px; 
+    height: 13vh;
+    max-height:70px;
+    width: 70px;
+    font-size: 15px;  
+    text-align:center;  
+    vertical-align: middle;
+    display: inline-block;
+}
+.badge{
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: 40px;
+    background: red;
+    padding: 7px; 
+    height: 20px;
+    width: 50px;
+    font-size: 7px;  
+    text-align:center;  
+    color:white;
+    position:absolute;
+}
+
+.mdl-badge[data-badge]:after{
+    background: red;
+    top: -6vh;
+    left: 0.00005vw;
+    font-weight: 100;
+
+}
+
+.Bubble1 {
+    border-radius: 25px;
+    background: #D8D8D8;
+    padding: 20px; 
+    width: 200px;
+    font-size: 17px;  
+    text-align:center;  
+    position: absolute;
+}
+
+.Bubble2 {
+    border-radius: 25px;
+    border: 2px solid black;
+    background: white;
+    padding: 20px; 
+    width: 200px;
+    font-size: 17px;  
+    text-align:center;
+    position: absolute;  
+}
+
+.Bubble3 {
+    border-radius: 20px;
+    background: #282828;
+    padding: 20px; 
+    width: 200px;
+    font-size: 17px;  
+    text-align:center;
+    color: white;
+    position: absolute;
+}
+
+.newBubble{
+    border-radius: 25px;
+    background: red;
+    padding: 20px; 
+    width: 200px;
+    font-size: 17px;  
+    text-align:center;
+    position: absolute;  
+    color: white;
+}
